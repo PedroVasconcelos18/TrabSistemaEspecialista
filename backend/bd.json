@@ -1,0 +1,34 @@
+{
+  "sistemas": [
+    {
+      "id": 1,
+      "nomeSistema": "Sistema do Pedro"
+    },
+    {
+      "id": 2,
+      "nomeSistema": "Sistema do Terin"
+    },
+    {
+      "id": 3,
+      "nomeSistema": "testeee"
+    }
+  ],
+  "variaveis": [
+    {
+      "id": 1,
+      "idSistema": "1",
+      "valorvariavel": "nome",
+      "descricao": "Seu nome é Leticia?",
+      "resposta": false,
+      "status": false
+    },
+    {
+      "id": 2,
+      "idSistema": "2",
+      "valorvariavel": "nome",
+      "descricao": "Seu nome é Terin?",
+      "resposta": true,
+      "status": false
+    }
+  ]
+}

@@ -1,0 +1,123 @@
+<div class="row" style="justify-content: center;">
+  <div class="col-md-8" style="text-align: center; margin:30px 0px 30px 0px">
+    <h3>Cadastro de sistema</h3>
+  </div>
+</div>
+<div class="row" style="justify-content: center;">
+    <div class="col-md-8" >
+        <table class="table">
+            <thead class="">
+                <tr>
+                  <th scope="col">Id</th>
+                  <th scope="col" >Nome</th>
+                  <th scope="col"></th>
+                  <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody *ngFor="let sistema of sistemas">
+                <tr>
+                  <td>{{sistema.id}}</td>
+                  <td>{{sistema.nomeSistema}}</td>
+                  <td> <button class="btn btn-info" (click)="openEditSistema(sistema.id)">Editar</button></td>
+                  <td> <button class="btn btn-danger" (click)="openDeleteSistema(sistema.id)">Deletar</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" style="justify-content: center;">
+    <div class="col-md-8">
+        <button class="btn btn-success" (click)="openCadastroSistema()" >
+            Cadastrar novo sistema
+        </button>
+    </div>
+</div>
+
+<!-- Model cadastrar sistema -->
+<div class="dialog-container" *ngIf="dialogCadastrarSistema.visible">
+  <div class="dialog-filter" (click)="dialogCadastrarSistema.onCancel()"></div>
+  <div class="dialog-card">
+    <div class="dialog-head dlhd" style="margin-top: 20px;">
+      <div>
+        <span class="title_dialog">{{ dialogCadastrarSistema.title }}</span>
+      </div>
+      <div class="dialog-close-icon dialog-icon" (click)="dialogCadastrarSistema.onCancel()">
+        <i class="bi bi-x"></i>
+      </div>
+    </div>
+    <div class="dialog-body">
+      <form [formGroup]="formSistema">
+        <label>Nome do sistema: </label>
+        <input class="form-control" type="text" formControlName="nomeSistema">
+      </form>
+    </div>
+    <div class="dialog-footer">
+      <button type="button" class="btn btn-outline-danger" data-dismiss="dialogCadastrarSistema" (click)="dialogCadastrarSistema.onCancel()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-outline-success" (click)="dialogCadastrarSistema.onOk()">
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Model cadastrar sistema -->
+
+<!-- Model editar sistema -->
+<div class="dialog-container" *ngIf="dialogEditSistema.visible">
+  <div class="dialog-filter" (click)="dialogEditSistema.onCancel()"></div>
+  <div class="dialog-card">
+    <div class="dialog-head dlhd" style="margin-top: 20px;">
+      <div>
+        <span class="title_dialog">{{ dialogEditSistema.title }}</span>
+      </div>
+      <div class="dialog-close-icon dialog-icon" (click)="dialogEditSistema.onCancel()">
+        <i class="bi bi-x"></i>
+      </div>
+    </div>
+    <div class="dialog-body">
+      <form [formGroup]="formEditSistema">
+        <label>Nome do sistema: </label>
+        <input class="form-control" type="text" formControlName="nomeSistema">
+      </form>
+    </div>
+    <div class="dialog-footer">
+      <button type="button" class="btn btn-outline-danger" data-dismiss="dialogEditSistema" (click)="dialogEditSistema.onCancel()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-outline-success" (click)="dialogEditSistema.onOk()">
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Model editar sistema -->
+
+<!-- Model excluir sistema -->
+<div class="dialog-container" *ngIf="dialogDeleteSistema.visible">
+  <div class="dialog-filter" (click)="dialogDeleteSistema.onCancel()"></div>
+  <div class="dialog-card">
+    <div class="dialog-head dlhd" style="margin-top: 20px;">
+      <div>
+        <span class="title_dialog">{{ dialogDeleteSistema.title }}</span>
+      </div>
+      <div class="dialog-close-icon dialog-icon" (click)="dialogDeleteSistema.onCancel()">
+        <i class="bi bi-x"></i>
+      </div>
+    </div>
+    <div class="dialog-body">
+     <p>
+       Deseja realmente excluir este o sistema?
+     </p> 
+    </div>
+    <div class="dialog-footer">
+      <button type="button" class="btn btn-outline-danger" data-dismiss="dialogDeleteSistema" (click)="dialogDeleteSistema.onCancel()">
+        Cancelar
+      </button>
+      <button type="button" class="btn btn-outline-success" (click)="dialogDeleteSistema.onOk()">
+        Salvar
+      </button>
+    </div>
+  </div>
+</div>
+<!-- Model excluir sistema -->

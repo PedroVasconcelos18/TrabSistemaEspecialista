@@ -7,10 +7,22 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { NavComponent } from './pages/nav/nav.component';
+import { HomeComponent } from './pages/home/home.component';
+import { SistemaComponent } from './pages/sistema/sistema.component';
+import { VariaveisComponent } from './pages/variaveis/variaveis.component';
+import { RegrasComponent } from './pages/regras/regras.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavComponent,
+    HomeComponent,
+    SistemaComponent,
+    VariaveisComponent,
+    RegrasComponent,
   ],
   imports: [
     BrowserModule,
@@ -18,6 +30,9 @@ import { ToastrModule } from 'ngx-toastr';
     NgbModule,
     BrowserAnimationsModule, // required animations module
     ToastrModule.forRoot(), // ToastrModule added
+    FormsModule, 
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
