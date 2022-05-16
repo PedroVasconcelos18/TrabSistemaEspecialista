@@ -10,8 +10,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { NavComponent } from './pages/nav/nav.component';
 import { HomeComponent } from './pages/home/home.component';
 import { SistemaComponent } from './pages/sistema/sistema.component';
-import { VariaveisComponent } from './pages/variaveis/variaveis.component';
-import { RegrasComponent } from './pages/regras/regras.component';
+import { FatosComponent } from './pages/fatos/fatos.component';
+import { ResultadoComponent } from './pages/resultado/resultado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -21,8 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     NavComponent,
     HomeComponent,
     SistemaComponent,
-    VariaveisComponent,
-    RegrasComponent,
+    FatosComponent,
+    ResultadoComponent,
   ],
   imports: [
     BrowserModule,

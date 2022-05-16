@@ -1,34 +1,107 @@
 {
   "sistemas": [
     {
-      "id": 1,
-      "nomeSistema": "Sistema do Pedro"
-    },
-    {
-      "id": 2,
-      "nomeSistema": "Sistema do Terin"
-    },
-    {
       "id": 3,
-      "nomeSistema": "testeee"
+      "nomeSistema": "Tenho covid?"
+    },
+    {
+      "id": 4,
+      "nomeSistema": "Tenho um cachorro?"
     }
   ],
-  "variaveis": [
+  "fato": [
     {
       "id": 1,
       "idSistema": "1",
-      "valorvariavel": "nome",
+      "valorFato": "nome",
       "descricao": "Seu nome é Leticia?",
-      "resposta": false,
-      "status": false
+      "resposta": "false"
     },
     {
       "id": 2,
       "idSistema": "2",
-      "valorvariavel": "nome",
+      "valorFato": "nome",
       "descricao": "Seu nome é Terin?",
-      "resposta": true,
-      "status": false
+      "resposta": "true"
+    },
+    {
+      "id": 4,
+      "idSistema": "",
+      "valorFato": "teste 2",
+      "descricao": " teste",
+      "resposta": "true",
+      "status": ""
+    },
+    {
+      "id": 5,
+      "idSistema": "",
+      "valorFato": "teste final",
+      "descricao": "teste",
+      "resposta": "true",
+      "status": ""
+    },
+    {
+      "id": 6,
+      "idSistema": "3",
+      "valorFato": "Sintoma",
+      "descricao": "Tosse",
+      "resposta": "true"
+    },
+    {
+      "id": 7,
+      "idSistema": "3",
+      "valorFato": "Sintoma",
+      "descricao": "Catarro",
+      "resposta": "true"
+    },
+    {
+      "id": 8,
+      "idSistema": "3",
+      "valorFato": "Sintoma",
+      "descricao": "Nariz entupido",
+      "resposta": "true"
+    },
+    {
+      "id": 9,
+      "idSistema": "3",
+      "valorFato": "Sintoma",
+      "descricao": "Febre",
+      "resposta": "true"
+    },
+    {
+      "id": 10,
+      "idSistema": "3",
+      "valorFato": "Sintoma",
+      "descricao": "Olho inchado",
+      "resposta": "false"
+    },
+    {
+      "id": 11,
+      "idSistema": "4",
+      "valorFato": "Hábitos",
+      "descricao": "Ele late?",
+      "resposta": "true"
+    },
+    {
+      "id": 12,
+      "idSistema": "4",
+      "valorFato": "Hábitos",
+      "descricao": "Ele mia?",
+      "resposta": "false"
+    },
+    {
+      "id": 13,
+      "idSistema": "4",
+      "valorFato": "Hábitos",
+      "descricao": "Ele corre atrás da bolinha?",
+      "resposta": "true"
+    },
+    {
+      "id": 14,
+      "idSistema": "4",
+      "valorFato": "Dúvida",
+      "descricao": "A veterinaria chamou ele de gato?",
+      "resposta": "false"
     }
   ]
 }

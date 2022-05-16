@@ -73,7 +73,7 @@ export class SistemaComponent implements OnInit {
   createSistema(): void {
     if(!this.formSistema.invalid) {
       this.sistemaService.create(this.formSistema.value).subscribe(() => {
-        this.sistemaService.message("Sistema salvo!");
+        this.sistemaService.messageSuccess("Sistema salvo!");
         location.reload();
       });
     }
@@ -90,7 +90,7 @@ export class SistemaComponent implements OnInit {
   editSistema() {
     if(!this.formEditSistema.invalid) {
       this.sistemaService.update(this.formEditSistema.value).subscribe(() => {
-        this.sistemaService.message("Sistema atualizado!");
+        this.sistemaService.messageSuccess("Sistema atualizado!");
         location.reload();
       });
     }
@@ -106,7 +106,7 @@ export class SistemaComponent implements OnInit {
 
   deletarSistema(id: any) {
     this.sistemaService.delete(id).subscribe(() => {
-      this.sistemaService.message("Sistema deletado.")
+      this.sistemaService.messageSuccess("Sistema deletado.")
       location.reload();
     });
   }

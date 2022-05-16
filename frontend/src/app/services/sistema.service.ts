@@ -10,8 +10,12 @@ export class SistemaService {
 
   baseURL ="http://localhost:3001/sistemas";
 
-  message(message: String) {
+  messageSuccess(message: String) {
     this.toastr.success(""+message);
+  }
+
+  messageDanger(message: String) {
+    this.toastr.error(""+message);
   }
 
   constructor(private toastr: ToastrService, private http: HttpClient) { }

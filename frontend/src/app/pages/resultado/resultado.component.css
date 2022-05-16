@@ -1,0 +1,17 @@
+input, select, .card {
+    margin-bottom: 10px;
+}
+
+.card {
+    margin: 20px 20px;
+}
+
+.postivo {
+    font-weight: bold;
+    color: rgb(101, 231, 61);
+}
+
+.negativo {
+    font-weight: bold;
+    color: rgb(241, 47, 47);
+}
