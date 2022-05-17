@@ -7,101 +7,209 @@
     {
       "id": 4,
       "nomeSistema": "Tenho um cachorro?"
+    },
+    {
+      "id": 5,
+      "nomeSistema": "Carros"
+    }
+  ],
+  "problemas": [
+    {
+      "id": 1,
+      "idSistema": "3",
+      "nomeProblema": "Sintomas",
+      "descricao": "Sintomas possíveis"
+    },
+    {
+      "id": 2,
+      "idSistema": "4",
+      "nomeProblema": "Hábitos e dúvidas",
+      "descricao": "Hábitos e dúvidas do animal"
+    },
+    {
+      "id": 3,
+      "idSistema": "3",
+      "nomeProblema": "Manchas",
+      "descricao": "Possiveis manchas no corpo"
+    },
+    {
+      "id": 4,
+      "idSistema": "5",
+      "nomeProblema": "Vazamento de água para o motor",
+      "descricao": "Verificar se o motor está vazando oléo"
+    },
+    {
+      "id": 5,
+      "idSistema": "5",
+      "nomeProblema": "Bateria descarregada",
+      "descricao": "Verificar se a bateria está descarregada"
+    },
+    {
+      "id": 6,
+      "idSistema": "5",
+      "nomeProblema": "Correia dentada",
+      "descricao": "Verificar se a correia está frouxa"
+    },
+    {
+      "id": 7,
+      "idSistema": "5",
+      "nomeProblema": "Freios necessitam de reparo",
+      "descricao": "Verificar se o freio está desgastado"
     }
   ],
   "fato": [
     {
-      "id": 1,
-      "idSistema": "1",
-      "valorFato": "nome",
-      "descricao": "Seu nome é Leticia?",
-      "resposta": "false"
-    },
-    {
-      "id": 2,
-      "idSistema": "2",
-      "valorFato": "nome",
-      "descricao": "Seu nome é Terin?",
-      "resposta": "true"
-    },
-    {
-      "id": 4,
-      "idSistema": "",
-      "valorFato": "teste 2",
-      "descricao": " teste",
-      "resposta": "true",
-      "status": ""
-    },
-    {
-      "id": 5,
-      "idSistema": "",
-      "valorFato": "teste final",
-      "descricao": "teste",
-      "resposta": "true",
-      "status": ""
-    },
-    {
       "id": 6,
       "idSistema": "3",
+      "idProblema": "3",
       "valorFato": "Sintoma",
-      "descricao": "Tosse",
+      "descricao": "Tem tosse?",
+      "motivo": "Saber está tossindo",
       "resposta": "true"
     },
     {
       "id": 7,
       "idSistema": "3",
+      "idProblema": "1",
       "valorFato": "Sintoma",
-      "descricao": "Catarro",
+      "descricao": "Tem catarro?",
+      "motivo": "Saber se tem catarro.",
       "resposta": "true"
     },
     {
       "id": 8,
       "idSistema": "3",
+      "idProblema": "1",
       "valorFato": "Sintoma",
-      "descricao": "Nariz entupido",
+      "descricao": "Seu nariz está entupido?",
+      "motivo": "Saber se o nariz está entupido.",
       "resposta": "true"
     },
     {
       "id": 9,
       "idSistema": "3",
+      "idProblema": "1",
       "valorFato": "Sintoma",
-      "descricao": "Febre",
+      "descricao": "Está com febre?",
+      "motivo": "Saber se tem febre.",
       "resposta": "true"
     },
     {
       "id": 10,
       "idSistema": "3",
+      "idProblema": "1",
       "valorFato": "Sintoma",
-      "descricao": "Olho inchado",
+      "descricao": "O olho está inchado?",
+      "motivo": "Saber se está com o olho inchado.",
       "resposta": "false"
     },
     {
       "id": 11,
       "idSistema": "4",
+      "idProblema": "2",
       "valorFato": "Hábitos",
       "descricao": "Ele late?",
+      "motivo": "Saber se late.",
       "resposta": "true"
     },
     {
       "id": 12,
       "idSistema": "4",
+      "idProblema": "2",
       "valorFato": "Hábitos",
       "descricao": "Ele mia?",
+      "motivo": "Saber se mia.",
       "resposta": "false"
     },
     {
       "id": 13,
       "idSistema": "4",
+      "idProblema": "2",
       "valorFato": "Hábitos",
       "descricao": "Ele corre atrás da bolinha?",
+      "motivo": "Saber corre atrás da bolinha.",
       "resposta": "true"
     },
     {
       "id": 14,
       "idSistema": "4",
+      "idProblema": "2",
       "valorFato": "Dúvida",
       "descricao": "A veterinaria chamou ele de gato?",
+      "motivo": "Saber como a veterinaria o chama.",
       "resposta": "false"
+    },
+    {
+      "id": 15,
+      "idSistema": "3",
+      "idProblema": "1",
+      "valorFato": "Manchas Vermelhas",
+      "descricao": "Existem manchas vermelhas pelo corpo?",
+      "motivo": "Saber se existem manchas vermelhas.",
+      "resposta": "true"
+    },
+    {
+      "id": 16,
+      "idSistema": "4",
+      "idProblema": "2",
+      "valorFato": "Dúvida",
+      "descricao": "Ele tem 4 patas?",
+      "motivo": "Saber se tem 4 patas.",
+      "resposta": "true"
+    },
+    {
+      "id": 17,
+      "idSistema": "5",
+      "idProblema": "4",
+      "valorFato": "Óleo na cor branca",
+      "descricao": "O óleo está com a cor branca?",
+      "motivo": "Saber se o óleo está com cor branca",
+      "resposta": "true"
+    },
+    {
+      "id": 18,
+      "idSistema": "5",
+      "idProblema": "5",
+      "valorFato": "Carro não liga",
+      "descricao": "O carro está ligando?",
+      "motivo": "Saber se o carro liga",
+      "resposta": "false"
+    },
+    {
+      "id": 19,
+      "idSistema": "5",
+      "idProblema": "5",
+      "valorFato": "Faz barulho ao ligar?",
+      "descricao": "O carro estalo ao tentar ligar?",
+      "motivo": "Saber se faz estalo ao ligar",
+      "resposta": "true"
+    },
+    {
+      "id": 20,
+      "idSistema": "5",
+      "idProblema": "5",
+      "valorFato": "O carro funciona no tranco?",
+      "descricao": "O carro funciona no tranco?",
+      "motivo": "Saber se o carro funciona no tranco",
+      "resposta": "true"
+    },
+    {
+      "id": 21,
+      "idSistema": "5",
+      "idProblema": "6",
+      "valorFato": "O carro liga",
+      "descricao": "O carro está ligando?",
+      "motivo": "Saber se o carro liga",
+      "resposta": "true"
+    },
+    {
+      "id": 22,
+      "idSistema": "5",
+      "idProblema": "7",
+      "valorFato": "barulhos nas frenagens",
+      "descricao": "Está escutando ruídos nas frenagens?",
+      "motivo": "Saber se tem barulhos nas frenagens",
+      "resposta": "true"
     }
   ]
 }

@@ -15,3 +15,12 @@ input, select, .card {
     font-weight: bold;
     color: rgb(241, 47, 47);
 }
+
+.titleProblem h1{
+    margin-left: 30px;
+}
+
+svg {
+    min-width: 25px; 
+    max-width: 25px;
+}

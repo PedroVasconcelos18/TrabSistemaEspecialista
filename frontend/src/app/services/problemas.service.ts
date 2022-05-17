@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
-import { Fato } from '../model/fato.model';
+import { Problema } from '../model/problema.model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FatoService {
+export class ProblemasService {
 
-  baseURL ="http://localhost:3001/fato"
+  baseURL ="http://localhost:3001/problemas"
 
   constructor(private toastr: ToastrService, private http: HttpClient) { }
 
@@ -18,32 +18,28 @@ export class FatoService {
     this.toastr.success(""+message);
   }
 
-  create(fato: Fato){
-    return this.http.post(this.baseURL, fato)
+  create(problema: Problema){
+    return this.http.post(this.baseURL, problema)
   }
 
-  getByIdSistema(id: any): Observable<Fato[]> {
+  getByIdSistema(id: any): Observable<Problema[]> {
     const url = `${this.baseURL}?idSistema=${id}`
-    return this.http.get<Fato[]>(url)
+    console.log(url);
+    return this.http.get<Problema[]>(url)
   }
 
-  getByIdProblema(id: any): Observable<Fato[]> {
-    const url = `${this.baseURL}?idProblema=${id}`
-    return this.http.get<Fato[]>(url)
-  }
-
-  getById(id: any): Observable<Fato> {
+  getById(id: any): Observable<Problema> {
     const url = `${this.baseURL}/${id}`
-    return this.http.get<Fato>(url)
+    return this.http.get<Problema>(url)
   }
 
   get(id: any){
     return this.http.get(this.baseURL)
   }
 
-  update(fato: any){
-    const url = `${this.baseURL}/${fato.id}`
-    return this.http.put(url, fato)
+  update(problemas: any){
+    const url = `${this.baseURL}/${problemas.id}`
+    return this.http.put(url, problemas)
   }
 
   delete(id: string){

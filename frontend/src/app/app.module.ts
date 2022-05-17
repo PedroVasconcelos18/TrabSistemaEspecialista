@@ -14,6 +14,10 @@ import { FatosComponent } from './pages/fatos/fatos.component';
 import { ResultadoComponent } from './pages/resultado/resultado.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ProblemasComponent } from './pages/problemas/problemas.component';
+import { ComoUsarComponent } from './pages/como-usar/como-usar.component';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,8 @@ import { HttpClientModule } from '@angular/common/http';
     SistemaComponent,
     FatosComponent,
     ResultadoComponent,
+    ProblemasComponent,
+    ComoUsarComponent,
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     ToastrModule.forRoot(), // ToastrModule added
     FormsModule, 
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    FontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 import { SistemaComponent } from './pages/sistema/sistema.component';
 import { FatosComponent } from './pages/fatos/fatos.component';
 import { ResultadoComponent } from './pages/resultado/resultado.component';
+import { ProblemasComponent } from './pages/problemas/problemas.component';
+import { ComoUsarComponent } from './pages/como-usar/como-usar.component';
 
 const routes: Routes = [
   {
@@ -11,8 +13,16 @@ const routes: Routes = [
     component: HomeComponent
   }, 
   {
+    path: "como-usar",
+    component: ComoUsarComponent
+  }, 
+  {
     path: "sistemas",
     component: SistemaComponent
+  }, 
+  {
+    path: "problemas",
+    component: ProblemasComponent
   }, 
   {
     path: "fatos",

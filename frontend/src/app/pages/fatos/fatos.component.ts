@@ -1,9 +1,11 @@
+import { ProblemasService } from 'src/app/services/problemas.service';
 import { FatoService } from '../../services/fato.service';
 import { Sistema } from '../../model/sistema.model';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { SistemaService } from '../../services/sistema.service';
 import { Component, OnInit } from '@angular/core';
 import { Fato } from '../../model/fato.model';
+import { Problema } from 'src/app/model/problema.model';
 
 @Component({
   selector: 'app-fatos',
@@ -13,17 +15,24 @@ import { Fato } from '../../model/fato.model';
 export class FatosComponent implements OnInit {
 
   fatos!: Fato[];
+  problemas!: Problema[];
   sistemas: any = [];
   idSistemaSelecionado: Number = 0;
+  idProblemaSelecionado: Number = 0;
   fato: Fato = {
     id: 0,
     idSistema: this.idSistemaSelecionado.toString(),
+    idProblema: this.idProblemaSelecionado.toString(),
     valorFato: "",
     descricao: "",
+    motivo: "",
     resposta: "false",
   };
 
-  constructor(private sistemaService : SistemaService, private fatosService: FatoService) { }
+  constructor(
+    private sistemaService : SistemaService, 
+    private fatosService: FatoService, 
+    private problemasService: ProblemasService) { }
 
   ngOnInit(): void {
     this.sistemaService.get().subscribe(sistemas => {
@@ -34,16 +43,20 @@ export class FatosComponent implements OnInit {
   formFato = new FormGroup({
     id: new FormControl(''),
     idSistema: new FormControl(''),
+    idProblema: new FormControl(''),
     valorFato: new FormControl('', Validators.required),
     descricao: new FormControl('', Validators.required),
+    motivo: new FormControl('', Validators.required),
     resposta: new FormControl('', Validators.required),
   })
 
   formEditFato = new FormGroup({
     id: new FormControl(''),
     idSistema: new FormControl(''),
+    idProblema: new FormControl(''),
     valorFato: new FormControl('', Validators.required),
     descricao: new FormControl('', Validators.required),
+    motivo: new FormControl('', Validators.required),
     resposta: new FormControl('', Validators.required),
   })
 
@@ -84,14 +97,17 @@ export class FatosComponent implements OnInit {
     this.dialogCadastrarFatos.visible = true;
     this.formFato.controls["descricao"].patchValue("");
     this.formFato.controls["resposta"].patchValue("");
+    this.formFato.controls["motivo"].patchValue("");
   }
 
   openEditFato(id: any) {
     this.fatosService.getById(id).subscribe(fato => {
       this.formEditFato.controls['id'].patchValue(fato.id);
       this.formEditFato.controls['idSistema'].patchValue(fato.idSistema);
+      this.formEditFato.controls['idProblema'].patchValue(fato.idProblema);
       this.formEditFato.controls['valorFato'].patchValue(fato.valorFato);
       this.formEditFato.controls['descricao'].patchValue(fato.descricao);
+      this.formEditFato.controls['motivo'].patchValue(fato.motivo);
       this.formEditFato.controls['resposta'].patchValue(fato.resposta);
     });
     this.dialogEditFato.visible = true;
@@ -99,19 +115,22 @@ export class FatosComponent implements OnInit {
 
   
   createFato(): void {
-    this.formFato.controls["idSistema"].patchValue(this.idSistemaSelecionado.toString());
-
-    this.fatosService.create(this.formFato.value).subscribe(() => {
-      this.fatosService.message("Fato salvo com sucesso.")
-      this.carregarVariaveis();
-    })
+    
+    if(!this.formFato.invalid) { 
+      this.formFato.controls["idSistema"].patchValue(this.idSistemaSelecionado.toString());
+      this.formFato.controls["idProblema"].patchValue(this.idProblemaSelecionado.toString());
+      this.fatosService.create(this.formFato.value).subscribe(() => {
+        this.fatosService.message("Fato salvo com sucesso.")
+        this.carregarFatos();
+      });
+    }
   }
   
   editFato() {
     if(!this.formEditFato.invalid) {
       this.fatosService.update(this.formEditFato.value).subscribe(() => {
         this.sistemaService.messageSuccess("Fato atualizado!");
-        this.carregarVariaveis();
+        this.carregarFatos();
       });
     }
   }
@@ -127,13 +146,20 @@ export class FatosComponent implements OnInit {
   deletarFato(id: any) {
     this.fatosService.delete(id).subscribe(() => {
       this.sistemaService.messageSuccess("Fato deletado.")
-      this.carregarVariaveis();
+      this.carregarFatos();
     });
   }
 
-  carregarVariaveis(){
-    this.fatosService.getByIdSistema(this.idSistemaSelecionado).subscribe(fatos => {
+  carregarFatos(){
+    this.fatosService.getByIdProblema(this.idProblemaSelecionado).subscribe(fatos => {
       this.fatos = fatos
+    });
+  }
+
+  carregarProblemas(){
+    this.problemasService.getByIdSistema(this.idSistemaSelecionado).subscribe(problemas => {
+      this.fatos = [];
+      this.problemas = problemas;
     });
   }
 

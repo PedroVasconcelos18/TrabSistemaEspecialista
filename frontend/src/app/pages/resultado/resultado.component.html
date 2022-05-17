@@ -6,32 +6,43 @@
 
 <div class="row">
     <div class="col-md-12" style="text-align: center;">
-        <select class="form-select" [(ngModel)]="idSistemaSelecionado" (change)="carregarFatos()">
+        <select class="form-select" [(ngModel)]="idSistemaSelecionado" (change)="carregarProblemas()">
             <option value = 0 disabled selected>Selecione um sistema</option>
             <option *ngFor="let sistema of sistemas" value={{sistema.id}}>{{ sistema.nomeSistema }}</option>
         </select>
     </div>    
 </div>
 
-<div class="row" *ngIf="idSistemaSelecionado != 0">
-    <div class="col-md-4" style="text-align: center;" *ngFor="let fato of fatos; let i = index">
-        <div class="card">
-            <div class="card-header">
-                Pergunta {{i + 1}} - {{fato.valorFato}}
-            </div>
-            <div class="card-body">
-                <h5 class="card-title"> {{fato.descricao}} </h5>
-                <div>
-                    <button type="button" class="btn btn-success" style="margin-right: 10px;" (click)="afterAnswer('true', fato)">Verdadeiro</button>
-                    <button type="button" class="btn btn-danger" (click)="afterAnswer('false', fato)">Falso</button>
+<div *ngIf="idSistemaSelecionado != 0">
+    <div class="row" *ngFor="let problema of problemas; let y = index">
+        <div class="col-md-12 titleProblem" style="flex-direction: row;">
+            <h1>Problema {{y+1}} - {{problema.nomeProblema}} 
+                
+            </h1> 
+            
+        </div>
+        <div class="col-md-4" style="text-align: center;" *ngFor="let fato of problema.fatos; let i = index" >
+            <div class="card">
+                <div class="card-header">
+                    <div style="float: left;">
+                        Pergunta {{i + 1}} - {{fato.valorFato}}
+                    </div>
+                    <fa-icon style="cursor: default; float: right;" placement="top" [ngbTooltip]="fato.motivo" [icon]="faCircleInfoIcon"></fa-icon>
                 </div>
+                <div class="card-body">
+                    <h5 class="card-title"> {{fato.descricao}} </h5>
+                    <div>
+                        <button type="button" class="btn btn-success" style="margin-right: 10px;" (click)="afterAnswer('true', problema, fato.id)">Verdadeiro</button>
+                        <button type="button" class="btn btn-danger" (click)="afterAnswer('false', problema, fato.id)">Falso</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12" >
+            <div *ngIf="problema.resposta != null" style="margin: 10px 0px 10px 0px; text-align: center;">
+                <h2>O problema {{y + 1}} alegou <b [ngClass]="problema.resposta == 'positivo' ? 'postivo' : 'negativo'" >{{problema.resposta}}</b> </h2>
             </div>
         </div>
     </div>
 </div>
 
-<div class="row" *ngIf="respostaFinal != ''">
-    <div class="col-md-12" style="text-align: center;">
-        <h2>O sistema escolhido testou para <b [ngClass]="respostaFinal == 'positivo' ? 'postivo' : 'negativo'" >{{respostaFinal}}</b> </h2>
-    </div>
-</div>

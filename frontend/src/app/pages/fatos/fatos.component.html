@@ -1,19 +1,28 @@
 <div class="row" style="justify-content: center;">
     <div class="col-md-8" style="text-align: center; margin:30px 0px 30px 0px">
-        <h3>Cadastro de variaveis</h3>
+        <h3>Cadastro de fatos</h3>
     </div>
 </div>
 
 <div class="row">
     <div class="col-md-12" style="text-align: center;">
-        <select class="form-select" [(ngModel)]="idSistemaSelecionado" (change)="carregarVariaveis()">
-            <option value = 0 disabled selected>Selecione um sistema</option>
+        <select class="form-select" [(ngModel)]="idSistemaSelecionado" (change)="carregarProblemas()">
+            <option value = 0 selected>Selecione um sistema</option>
             <option *ngFor="let sistema of sistemas" value={{sistema.id}}>{{ sistema.nomeSistema }}</option>
         </select>
     </div>    
 </div>
 
-  <div *ngIf="idSistemaSelecionado != 0">
+<div class="row" *ngIf="idSistemaSelecionado != 0">
+  <div class="col-md-12" style="text-align: center;">
+      <select class="form-select" [(ngModel)]="idProblemaSelecionado" (change)="carregarFatos()">
+          <option value = 0 selected>Selecione um problema</option>
+          <option *ngFor="let problema of problemas" value={{problema.id}}>{{ problema.nomeProblema }}</option>
+      </select>
+  </div>    
+</div>
+
+  <div *ngIf="idProblemaSelecionado != 0">
     <div class="row" style="justify-content: center;">
         <div class="col-md-8" >
             <table class="table">
@@ -22,6 +31,7 @@
                       <th scope="col">Id</th>
                       <th scope="col" >Fato</th>
                       <th scope="col" >Pergunta</th>
+                      <th scope="col" >Motivo da pergunta</th>
                       <th scope="col" >Resposta</th>
                       <th scope="col"></th>
                       <th scope="col"></th>
@@ -32,6 +42,7 @@
                       <td>{{fato.id}}</td>
                       <td>{{fato.valorFato}}</td>
                       <td>{{fato.descricao}}</td>
+                      <td>{{fato.motivo}}</td>
                       <td>{{fato.resposta == 'true' ? 'Verdadeiro' : 'Falso'}}</td>
                       <td> <button class="btn btn-info" (click)="openEditFato(fato.id)">Editar</button></td>
                       <td> <button class="btn btn-danger" (click)="openDeleteFato(fato.id)">Deletar</button></td>
@@ -64,10 +75,12 @@
       </div>
       <div class="dialog-body">
         <form [formGroup]="formFato">
-          <label>Nome: </label>
+          <label>Nome do fato: </label>
           <input class="form-control" type="text" formControlName="valorFato">
-          <label>Descrição: </label>
+          <label>Pergunta: </label>
           <input class="form-control" type="text" formControlName="descricao">
+          <label>Motivo da pergunta: </label>
+          <input class="form-control" type="text" formControlName="motivo">
           <label>Resposta: </label>
           <select class="form-control form-select" formControlName="resposta">
             <option value="true">Verdadeiro</option>
@@ -103,8 +116,10 @@
         <form [formGroup]="formEditFato">
           <label>Nome do fato: </label>
           <input class="form-control" type="text" formControlName="valorFato">
-          <label>Descrição: </label>
+          <label>Pergunta: </label>
           <input class="form-control" type="text" formControlName="descricao">
+          <label>Motivo da pergunta: </label>
+          <input class="form-control" type="text" formControlName="motivo">
           <label>Resposta: </label>
           <select class="form-control form-select" formControlName="resposta">
             <option value="true">Verdadeiro</option>
